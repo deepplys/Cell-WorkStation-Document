@@ -1,0 +1,67 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage[a4paper,left=2cm,right=2cm,bottom=1cm]{geometry} %版边距
+\usepackage{fancyhdr}        %页眉页脚
+\usepackage{tcolorbox}		 %彩色文本框
+\usepackage{xcolor-material} %调色板
+\usepackage{listings}		 %代码提示
+\usepackage{hyperref}		 %超链接
+\usepackage{titlesec}		 %标题类型样式
+\usepackage{titletoc} 		 %目录
+\usepackage{siunitx} \usepackage{amssymb}
+
+\colorlet{PrimaryColor}{MaterialBlue900}
+
+\titleformat*{\section}{\bfseries\large\color{PrimaryColor}}
+\titleformat*{\subsection}{\bfseries\normalsize\color{PrimaryColor}}
+\titleformat*{\subsubsection}{\bfseries\small\color{PrimaryColor}}
+
+\title{Cell WorkStation Document}
+\author{Cell Team}
+\date{\today}
+\begin{document}
+	\maketitle
+	
+	\newpage
+	\tableofcontents
+		
+	\newpage
+	\section{概览}
+		\subsection{简介}
+		Cell WorkStation\texttrademark 是一个完全Developed in-house的深度学习框架，它的结构并不繁复，却十分强大。其底层完全由C++构造，性能优异，上层接入受欢迎的Python语言。同时，Cell WorkStation还集成了一个开发环境，现代、优美而易用。
+		\subsection{特性}
+			\begin{itemize}
+				\item[·] 由Qt framework编写
+				\item[·] 现代的界面设计与交互
+				\item[·] 内嵌全功能代码编辑器
+				\item[·] 明亮和深色模式全局切换
+				\item[·] 优异的引擎性能
+			\end{itemize}
+		\subsection{Cell User Interface}
+		Cell WorkStation\texttrademark 包含了一系列自定义的组件基类来实现特殊的功能或视觉效果。这些基类均继承自QWidget。
+			\subsubsection{class customDialog}
+			为弹出式子对话框实现的高层基类，继承自QDialog。在原有基础上增加了“color”属性来实现全局颜色变换；调用Windows原生窗口阴影。
+			\subsubsection{class customStaticButton}
+			为静态按钮实现的高层基类，继承自QPushButton。在原有基础上增加了“color”属性来实现全局颜色变换，同时按钮三态能动态变化。
+			\subsubsection{class customDynamicButton}
+			为动态按钮实现的中层基类，继承自customStaticButton。在定制化静态按钮基础上实现鼠标移入移出的动态变换效果。
+			\subsubsection{class customFrame}
+			自定义的Frame高层基类，在原有基础上增加了“color”属性来实现全局颜色变换。
+			\subsubsection{class customGradientChangeFrame}
+			中层基类，继承自customFrame。实现了状态切换的动态效果。
+			\subsubsection{class customLabel}
+			高层基类，继承自QLabel。在原有基础上增加了“color”属性来实现全局颜色变换。
+			\subsubsection{class customWidget}
+			高层基类，继承自QWidget。在原有基础上增加了“color”属性来实现全局颜色变换；调用Windows原生窗口阴影。
+		\subsection{Cell Calculating Library}
+	\section{安装指南}
+	访问\url{https://www.riverbankcomputing.com/software/qscintria/downloadpage}下载QScintria for windows。
+
+	解压QScintria源码包后，进入其子目录Qt4Qt5，然后双击项目文件“qscintria.pro”。
+	
+	Qt将自动载入QScintria源代码，请选择MinGW 32位工具链，分别编译调试版本和发布版本。
+	
+	之后，你将得到两个动态链接库 \textbf{qscintria2\textunderscore qt5.dll} 和 \textbf{qscintria2\textunderscore qt5d.dll}，它们分别对应于调试模式和发布模式。
+	
+	差不多完成了，将这两个dll放到一个合适的目录中，并将它们添加到cell的pro文件中进行编译。
+\end{document}
